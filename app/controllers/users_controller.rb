@@ -5,4 +5,8 @@ class UsersController < ApplicationController
     @user = current_user
     render 'users/profile'
   end
+
+  def create_guide
+
+  end
 end
