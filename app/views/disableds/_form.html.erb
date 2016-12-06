@@ -1,9 +1,7 @@
-<%= form_for @disabled, url: {action: "create"} do |f| %>
+<%= form_for @disabled do |f| %>
   <%= f.label :name %>
   <%= f.text_field :name, placeholder: "Disabled name" %>
-   <br>
+  <br>
 
-   <%= f.submit "Create" %>
-   <!-- <%= f.button %>
-   <%= link_to 'Submit', "/disabled", method: :post %> -->
+  <%= f.button %>
 <% end %>

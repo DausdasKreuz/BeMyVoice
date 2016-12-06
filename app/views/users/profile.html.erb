@@ -5,6 +5,17 @@
   <strong>Email:</strong> <%= current_user.email %>
 </p>
 
+<ul>
+  <% @disableds.each do |disabled| %>
+    <li>
+      <%= disabled.name %>
+      <%= link_to "Edit disabled", edit_disabled_path(disabled) %>
+      <%= link_to "Delete disabled", disabled, method: :delete, data: {confirm: "Are you sure?"} %>
+    </li>
+  <% end %>
+</ul>
+
+
 <p>
   <%= button_to "Create disabled profile", new_disabled_path, method: :get %>
 </p>
