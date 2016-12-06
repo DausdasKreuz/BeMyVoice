@@ -4,3 +4,9 @@
 <p>
 <strong>Email:</strong> <%= current_user.email %>
 </p>
+
+<p>
+  <%= button_to "Edit profile", "/users/edit", method: :get %>
+</p>
+
+<%= link_to "Back", :back %>

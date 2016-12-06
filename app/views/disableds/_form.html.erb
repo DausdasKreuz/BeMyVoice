@@ -1,0 +1,3 @@
+<% form_for ([@user, @user.disableds.build]) do |f| %>
+  <%= f.text_field :name, placeholder: "Disabled name" %>
+<% end %>
