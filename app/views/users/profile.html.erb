@@ -2,7 +2,11 @@
 
 
 <p>
-<strong>Email:</strong> <%= current_user.email %>
+  <strong>Email:</strong> <%= current_user.email %>
+</p>
+
+<p>
+  <%= button_to "Create disabled profile", new_disabled_path, method: :get %>
 </p>
 
 <p>

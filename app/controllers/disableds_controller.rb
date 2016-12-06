@@ -1,8 +1,19 @@
 class DisabledsController < ApplicationController
-  before_action
+  before_action :disabled_params
+
+  def new
+    @disabled = Disabled.new
+  end
+
   def create
-    @disabled = @user.disableds.create(disabled_params)
-    redirect_to user.profile
+    @disabled = Disabled.new(disabled_params)
+    if @disabled.save
+      flash[:notice] = "Entry created!"
+      redirect_to current_user.profile
+    else
+      flash[:alert] = "Something went wrong..."
+      render "new"
+    end
   end
 
   private
