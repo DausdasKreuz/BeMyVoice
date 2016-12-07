@@ -5,8 +5,37 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-paul, alia, leto = User.create([
-  {name: 'Paul Atreides',  email: 'paul@arrakis.com', password: 'ironhack', password_confirmation: 'ironhack'},
-  {name: 'Alia Atreides',  email: 'alia@arrakis.com',  password: 'ironhack', password_confirmation: 'ironhack'},
-  {name: 'Leto Atreides', email: 'leto@arrakis.com',  password: 'ironhack', password_confirmation: 'ironhack'}
+require 'ffaker'
+
+# Create professionals
+users = User.create([
+  {name: 'Dani Garcia',  email: 'dani@bmv.io', password: 'secret', password_confirmation: 'secret'},
+  {name: 'Ana Toscano',  email: 'ana@bmv.io',  password: 'secret', password_confirmation: 'secret'},
+  {name: 'Jose Toscano', email: 'jose@bmv.io',  password: 'secret', password_confirmation: 'secret'},
+  {name: 'Harec Silvered',  email: 'harec@bmv.io',  password: 'secret', password_confirmation: 'secret'},
+  {name: 'Alfonso Huescar',  email: 'alfon@bmv.io',  password: 'secret', password_confirmation: 'secret'},
+  {name: 'Alex Ugena',  email: 'alex@bmv.io',  password: 'secret', password_confirmation: 'secret'}
 ])
+
+# Create disableds
+disableds = []
+users.each do |user|
+  5.times do
+    disabled = Disabled.create(
+      name: FFaker::Name.first_name + " Disabled",
+      professional_id: user.id
+    )
+    disableds.push(disabled)
+  end
+end
+
+disableds.each do |disabled|
+  guide = User.create(
+    name: FFaker::Name.first_name + " Guide",
+    email: FFaker::Internet.safe_email,
+    password: 'secret',
+    password_confirmation: 'secret',
+    professional: false
+  )
+  disabled.update(guide_id: guide.id)
+end
