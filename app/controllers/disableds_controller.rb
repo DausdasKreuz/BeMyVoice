@@ -17,7 +17,11 @@ class DisabledsController < ApplicationController
     end
   end
 
-  def de
+  def destroy
+    disabled = Disabled.find(params[:id])
+    disabled.destroy
+    redirect_to "/"
+  end
 
   private
 
