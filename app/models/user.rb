@@ -5,4 +5,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :disableds
+
+  validates :name, presence: true
+  validates :professional, inclusion: { in: [true, false] }
+  # validates :professional, exclusion: { in: [nil] }
 end
