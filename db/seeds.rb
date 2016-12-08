@@ -38,4 +38,26 @@ disableds.each do |disabled|
     professional: false
   )
   disabled.update(guide_id: guide.id)
+
+  3.times do
+    agenda = Agenda.create(
+    name: "Agenda " + disabled.id.to_s,
+    disabled_id: disabled.id
+    )
+
+    3.times do |i|
+      board = Board.create(
+      name: "Board " + i.to_s,
+      agenda_id: agenda.id
+      )
+
+      6.times do |p|
+        Pictogram.create(
+        name: "Pictogram " + p.to_s,
+        image: FFaker::Avatar.image,
+        board_id: board.id
+        )
+      end
+    end
+  end
 end

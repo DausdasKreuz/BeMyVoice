@@ -9,12 +9,10 @@
   <% @disableds.each do |disabled| %>
     <li>
       <%= disabled.name %>
-      <%= link_to "Edit disabled", edit_disabled_path(disabled) %>
-      <%= link_to "Delete disabled", disabled, method: :delete, data: {confirm: "Are you sure?"} %>
+      <%= link_to "Select disable", disabled_path(disabled) %>
     </li>
   <% end %>
 </ul>
-
 
 <p>
   <%= button_to "Create disabled profile", new_disabled_path, method: :get %>

@@ -1,0 +1,25 @@
+<h2><%= current_user.name %>!</h2>
+
+<h3><%= @disabled.name %> profile</h3>
+<%= link_to "Edit disabled", edit_disabled_path(@disabled) %> |
+<%= link_to "Delete disabled", @disabled, method: :delete, data: {confirm: "Are you sure?"} %>
+
+
+<ul>
+  <% @agendas.each do |agenda| %>
+    <li>
+      <%= agenda.name %>
+    </li>
+  <% end %>
+</ul>
+
+
+<p>
+  <%= button_to "Create disabled profile", new_disabled_path, method: :get %>
+</p>
+
+<p>
+  <%= button_to "Edit disable profile", "/users/edit", method: :get %>
+</p>
+
+<%= link_to "Back", :back %>

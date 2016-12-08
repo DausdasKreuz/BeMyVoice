@@ -12,12 +12,15 @@
 
 ActiveRecord::Schema.define(version: 20161208134634) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "agendas", force: :cascade do |t|
     t.string   "name"
     t.integer  "disabled_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
-    t.index ["disabled_id"], name: "index_agendas_on_disabled_id"
+    t.index ["disabled_id"], name: "index_agendas_on_disabled_id", using: :btree
   end
 
   create_table "boards", force: :cascade do |t|
@@ -25,7 +28,7 @@ ActiveRecord::Schema.define(version: 20161208134634) do
     t.integer  "agenda_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["agenda_id"], name: "index_boards_on_agenda_id"
+    t.index ["agenda_id"], name: "index_boards_on_agenda_id", using: :btree
   end
 
   create_table "disableds", force: :cascade do |t|
@@ -34,8 +37,8 @@ ActiveRecord::Schema.define(version: 20161208134634) do
     t.datetime "updated_at",      null: false
     t.integer  "professional_id"
     t.integer  "guide_id"
-    t.index ["guide_id"], name: "index_disableds_on_guide_id"
-    t.index ["professional_id"], name: "index_disableds_on_professional_id"
+    t.index ["guide_id"], name: "index_disableds_on_guide_id", using: :btree
+    t.index ["professional_id"], name: "index_disableds_on_professional_id", using: :btree
   end
 
   create_table "pictograms", force: :cascade do |t|
@@ -44,7 +47,7 @@ ActiveRecord::Schema.define(version: 20161208134634) do
     t.integer  "board_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["board_id"], name: "index_pictograms_on_board_id"
+    t.index ["board_id"], name: "index_pictograms_on_board_id", using: :btree
   end
 
   create_table "users", force: :cascade do |t|
@@ -57,8 +60,11 @@ ActiveRecord::Schema.define(version: 20161208134634) do
     t.datetime "created_at",                            null: false
     t.datetime "updated_at",                            null: false
     t.boolean  "professional",           default: true
-    t.index ["email"], name: "index_users_on_email", unique: true
-    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+    t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
+  add_foreign_key "agendas", "disableds"
+  add_foreign_key "boards", "agendas"
+  add_foreign_key "pictograms", "boards"
 end
