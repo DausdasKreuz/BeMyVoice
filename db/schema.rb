@@ -10,7 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161206105456) do
+ActiveRecord::Schema.define(version: 20161208105554) do
+
+  create_table "agendas", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "disabled_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["disabled_id"], name: "index_agendas_on_disabled_id"
+  end
 
   create_table "disableds", force: :cascade do |t|
     t.string   "name"
