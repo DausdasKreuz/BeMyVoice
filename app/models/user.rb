@@ -6,7 +6,7 @@ class User < ApplicationRecord
 
   has_many  :assisted_disableds, class_name: 'Disabled', foreign_key: 'professional_id'
 
-  has_many  :guided_disableds, class_name: 'Disabled', foreign_key: 'guide_id'
+  has_one  :guided_disabled, class_name: 'Disabled', foreign_key: 'guide_id'
 
   validates :name, presence: true
   validates :professional, inclusion: { in: [true, false] }
