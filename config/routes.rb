@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
+  get 'users/guide/edit', to: 'users#edit_guide', as: 'user_guide_edit'
 
   resources :disableds
 

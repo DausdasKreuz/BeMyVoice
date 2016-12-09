@@ -9,12 +9,12 @@ require 'ffaker'
 
 # Create professionals
 users = User.create([
-  {name: 'Dani Garcia', role: 'professional',  email: 'dani@bmv.io', password: 'secret', password_confirmation: 'secret'},
-  {name: 'Ana Toscano', role: 'professional',  email: 'ana@bmv.io',  password: 'secret', password_confirmation: 'secret'},
-  {name: 'Jose Toscano', role: 'professional', email: 'jose@bmv.io',  password: 'secret', password_confirmation: 'secret'},
-  {name: 'Harec Silvered', role: 'professional',  email: 'harec@bmv.io',  password: 'secret', password_confirmation: 'secret'},
-  {name: 'Alfonso Huescar', role: 'professional',  email: 'alfon@bmv.io',  password: 'secret', password_confirmation: 'secret'},
-  {name: 'Alex Ugena', role: 'professional',  email: 'alex@bmv.io',  password: 'secret', password_confirmation: 'secret'}
+  {name: 'Dani Garcia',     email: 'dani@bmv.io',  role: 'professional', password: 'secret', password_confirmation: 'secret'},
+  {name: 'Ana Toscano',     email: 'ana@bmv.io',   role: 'professional', password: 'secret', password_confirmation: 'secret'},
+  {name: 'Jose Toscano',    email: 'jose@bmv.io',  role: 'professional', password: 'secret', password_confirmation: 'secret'},
+  {name: 'Harec Silvered',  email: 'harec@bmv.io', role: 'professional', password: 'secret', password_confirmation: 'secret'},
+  {name: 'Alfonso Huescar', email: 'alfon@bmv.io', role: 'professional', password: 'secret', password_confirmation: 'secret'},
+  {name: 'Alex Ugena',      email: 'alex@bmv.io',  role: 'professional', password: 'secret', password_confirmation: 'secret'}
 ])
 
 # Create disableds
@@ -22,8 +22,8 @@ disableds = []
 users.each do |user|
   5.times do
     disabled = Disabled.create(
-      name: FFaker::Name.first_name + " Disabled",
-      professional_id: user.id
+      name:             FFaker::Name.first_name + " Disabled",
+      professional_id:  user.id
     )
     disableds.push(disabled)
   end
@@ -31,30 +31,30 @@ end
 
 disableds.each do |disabled|
   guide = User.create(
-    name: FFaker::Name.first_name + " Guide",
-    email: FFaker::Internet.safe_email,
-    password: 'secret',
-    password_confirmation: 'secret',
-    role: "guide"
+    name:                   FFaker::Name.first_name + " Guide",
+    email:                  FFaker::Internet.safe_email,
+    password:               'secret',
+    password_confirmation:  'secret',
+    role:                   "guide"
   )
   disabled.update(guide_id: guide.id)
 
   3.times do
     agenda = Agenda.create(
-    name: "Agenda " + disabled.id.to_s,
-    disabled_id: disabled.id
+    name:         "Agenda " + disabled.id.to_s,
+    disabled_id:  disabled.id
     )
 
     3.times do |i|
       board = Board.create(
-      name: "Board " + i.to_s,
-      agenda_id: agenda.id
+      name:       "Board " + i.to_s,
+      agenda_id:  agenda.id
       )
 
       6.times do |p|
         Pictogram.create(
-        name: "Pictogram " + p.to_s,
-        image: FFaker::Avatar.image,
+        name:     "Pictogram " + p.to_s,
+        image:    FFaker::Avatar.image,
         board_id: board.id
         )
       end

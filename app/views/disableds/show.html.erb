@@ -13,13 +13,14 @@
   <% end %>
 </ul>
 
-
+<% if @guide %>
 <p>
-  <%= button_to "Create disabled profile", new_disabled_path, method: :get %>
+  <%= button_to "Edit guide profile", user_guide_edit_path(@guide), method: :get %>
 </p>
-
+<% else %>
 <p>
-  <%= button_to "Edit disable profile", "/users/edit", method: :get %>
+  <%= button_to "Create guide profile", new_user_registration_path, method: :get %>
 </p>
+<% end %>
 
 <%= link_to "Back", :back %>

@@ -6,4 +6,9 @@ class UsersController < ApplicationController
     @disableds = Disabled.where(professional_id: @user.id)
     render 'users/profile'
   end
+
+  def edit_guide
+    binding.pry
+    @guide
+  end
 end

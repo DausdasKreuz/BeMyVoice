@@ -4,6 +4,10 @@ class DisabledsController < ApplicationController
 
   def show
     @agendas = @disabled.agendas
+    if @disabled.guide_id
+      @guide = User.where(id: @disabled.guide_id)
+    end
+
   end
 
   def new
@@ -23,6 +27,10 @@ class DisabledsController < ApplicationController
   end
 
   def edit
+    @guide = User.where(id: @disabled.guide_id)
+  end
+
+  def update
     if @disabled.update(disabled_params)
       flash[:notice] = "Entry updated!"
       redirect_to "root"
