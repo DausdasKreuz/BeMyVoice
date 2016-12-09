@@ -9,12 +9,12 @@ require 'ffaker'
 
 # Create professionals
 users = User.create([
-  {name: 'Dani Garcia',  email: 'dani@bmv.io', password: 'secret', password_confirmation: 'secret'},
-  {name: 'Ana Toscano',  email: 'ana@bmv.io',  password: 'secret', password_confirmation: 'secret'},
-  {name: 'Jose Toscano', email: 'jose@bmv.io',  password: 'secret', password_confirmation: 'secret'},
-  {name: 'Harec Silvered',  email: 'harec@bmv.io',  password: 'secret', password_confirmation: 'secret'},
-  {name: 'Alfonso Huescar',  email: 'alfon@bmv.io',  password: 'secret', password_confirmation: 'secret'},
-  {name: 'Alex Ugena',  email: 'alex@bmv.io',  password: 'secret', password_confirmation: 'secret'}
+  {name: 'Dani Garcia', role: 'professional',  email: 'dani@bmv.io', password: 'secret', password_confirmation: 'secret'},
+  {name: 'Ana Toscano', role: 'professional',  email: 'ana@bmv.io',  password: 'secret', password_confirmation: 'secret'},
+  {name: 'Jose Toscano', role: 'professional', email: 'jose@bmv.io',  password: 'secret', password_confirmation: 'secret'},
+  {name: 'Harec Silvered', role: 'professional',  email: 'harec@bmv.io',  password: 'secret', password_confirmation: 'secret'},
+  {name: 'Alfonso Huescar', role: 'professional',  email: 'alfon@bmv.io',  password: 'secret', password_confirmation: 'secret'},
+  {name: 'Alex Ugena', role: 'professional',  email: 'alex@bmv.io',  password: 'secret', password_confirmation: 'secret'}
 ])
 
 # Create disableds
@@ -35,7 +35,7 @@ disableds.each do |disabled|
     email: FFaker::Internet.safe_email,
     password: 'secret',
     password_confirmation: 'secret',
-    professional: false
+    role: "guide"
   )
   disabled.update(guide_id: guide.id)
 
