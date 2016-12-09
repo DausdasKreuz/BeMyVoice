@@ -1,0 +1,22 @@
+<nav>
+  <div class="header-menu">
+    <ul id="menu-list">
+      <li class="menu-list-item" id="menu-list-left">
+        <p>Yo soy <strong><%= @disabled.name %></strong></p>
+      </li>
+      <li class="menu-list-item" id="menu-list-right">
+        <div class="header-menu-rigth">
+          <p>Me ayuda a hablar <strong><%= current_user.name %></strong></p>
+        </div>
+
+        <div class="header-menu-rigth">
+          <p><%= link_to 'Salir', destroy_user_session_path, method: 'DELETE' %></p>
+        </div>
+
+        <div class="header-menu-right">
+          <p><%= link_to 'Editar perfil', edit_disabled_path(@disabled)%></p>
+        </div>
+      </li>
+    </ul>
+  </div>
+</nav>

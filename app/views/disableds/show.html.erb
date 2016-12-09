@@ -1,9 +1,11 @@
-<h2><%= current_user.name %>!</h2>
-
-<h3><%= @disabled.name %> profile</h3>
-<%= link_to "Edit disabled", edit_disabled_path(@disabled) %> |
-<%= link_to "Delete disabled", @disabled, method: :delete, data: {confirm: "Are you sure?"} %>
-
+<header>
+  <%= render "header" %>
+  <div class="header-menu" id="header-title">
+    <p>
+      Estas son mis agendas
+    </p>
+  </div>
+</header>
 
 <ul>
   <% @agendas.each do |agenda| %>
@@ -12,15 +14,3 @@
     </li>
   <% end %>
 </ul>
-
-<% if @guide %>
-<p>
-  <%= button_to "Edit guide profile", user_guide_edit_path(@guide), method: :get %>
-</p>
-<% else %>
-<p>
-  <%= button_to "Create guide profile", new_user_registration_path, method: :get %>
-</p>
-<% end %>
-
-<%= link_to "Back", :back %>
