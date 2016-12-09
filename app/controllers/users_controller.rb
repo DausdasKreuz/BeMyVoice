@@ -8,7 +8,6 @@ class UsersController < ApplicationController
   end
 
   def edit_guide
-    binding.pry
     @guide
   end
 end

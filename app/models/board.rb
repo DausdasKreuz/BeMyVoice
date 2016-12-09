@@ -3,4 +3,5 @@ class Board < ApplicationRecord
   has_many :pictograms
 
   validates :name, presence: true
+  validates :image, presence: true
 end
