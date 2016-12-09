@@ -20,7 +20,7 @@ users = User.create([
 # Create disableds
 disableds = []
 users.each do |user|
-  5.times do
+  3.times do
     disabled = Disabled.create(
       name:             FFaker::Name.first_name + " Disabled",
       professional_id:  user.id
@@ -39,15 +39,17 @@ disableds.each do |disabled|
   )
   disabled.update(guide_id: guide.id)
 
-  3.times do
+  2.times do
     agenda = Agenda.create(
     name:         "Agenda " + disabled.id.to_s,
+    image:        FFaker::Avatar.image,
     disabled_id:  disabled.id
     )
 
-    3.times do |i|
+    2.times do |i|
       board = Board.create(
       name:       "Board " + i.to_s,
+      image:      FFaker::Avatar.image,
       agenda_id:  agenda.id
       )
 
