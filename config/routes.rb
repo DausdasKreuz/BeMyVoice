@@ -1,8 +1,16 @@
 Rails.application.routes.draw do
+  get 'board/show'
+
+  get 'agendas/show'
+
   devise_for :users
   get 'users/guide/edit', to: 'users#edit_guide', as: 'user_guide_edit'
 
-  resources :disableds
+  resources :disableds do
+    resources :agendas do
+      resources :boards
+    end
+  end
 
   get 'profile', to: 'users#profile'
   root to: 'users#profile'
