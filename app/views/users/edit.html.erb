@@ -1,4 +1,4 @@
-<%= form_for [@user] do |f| %>
+<%= form_for [current_user] do |f| %>
    <%= f.label :name %>
    <%= f.text_field :name %>
    <br>
@@ -7,5 +7,5 @@
    <br>
 
    <%= f.button %>
-   <%= link_to 'Cancel', profile(@user) %>
+   <%= link_to 'Cancel', profile(current_user) %>
 <% end %>

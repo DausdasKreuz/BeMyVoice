@@ -1,0 +1,14 @@
+<div class="header-menu" id="header-title">
+  <p>
+    Estos son los pictogramas del tablero <%= @board.name %>, que está en la agenda <%= @agenda.name %>
+  </p>
+</div>
+</header>
+
+<ul>
+<% @pictograms.each do |pictogram| %>
+  <li>
+    <%= image_tag(pictogram.image) %>
+  </li>
+<% end %>
+</ul>

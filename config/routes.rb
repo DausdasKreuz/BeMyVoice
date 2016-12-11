@@ -1,8 +1,4 @@
 Rails.application.routes.draw do
-  get 'board/show'
-
-  get 'agendas/show'
-
   devise_for :users
   get 'users/guide/edit', to: 'users#edit_guide', as: 'user_guide_edit'
 

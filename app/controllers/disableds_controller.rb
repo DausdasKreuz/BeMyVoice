@@ -48,15 +48,4 @@ class DisabledsController < ApplicationController
   def disabled_params
     params.require(:disabled).permit(:name)
   end
-
-  def find_disabled
-    @user = current_user
-    @disabled = Disabled.find(params[:id])
-  end
-
-  def find_guide
-    if @disabled.guide_id
-      @guide = User.where(id: @disabled.guide_id)
-    end
-  end
 end
