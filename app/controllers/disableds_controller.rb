@@ -1,13 +1,9 @@
 class DisabledsController < ApplicationController
   before_action :disabled_params, only: [:create]
-  before_action :find_disabled, only: [:destroy, :edit, :show]
+  before_action :find_disabled, :find_guide, only: [:destroy, :edit, :show]
 
   def show
     @agendas = @disabled.agendas
-    if @disabled.guide_id
-      @guide = User.where(id: @disabled.guide_id)
-    end
-
   end
 
   def new
@@ -56,5 +52,11 @@ class DisabledsController < ApplicationController
   def find_disabled
     @user = current_user
     @disabled = Disabled.find(params[:id])
+  end
+
+  def find_guide
+    if @disabled.guide_id
+      @guide = User.where(id: @disabled.guide_id)
+    end
   end
 end

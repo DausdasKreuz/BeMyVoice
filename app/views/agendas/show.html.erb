@@ -1,2 +1,15 @@
-<h1>Agendas#show</h1>
-<p>Find me in app/views/agendas/show.html.erb</p>
+<div class="header-menu" id="header-title">
+  <p>
+    Estos son mis tableros
+  </p>
+</div>
+</header>
+
+<ul>
+<% @boards.each do |board| %>
+  <li>
+    <%= link_to "#{board.name}", "/disableds/#{@disabled.id}/agendas/#{@agenda.id}/boards/board.id" %>
+    <%= link_to image_tag(board.image), "/disableds/#{@disabled.id}/agendas/#{@agenda.id}/boards/board.id" %>
+  </li>
+<% end %>
+</ul>
