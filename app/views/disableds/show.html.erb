@@ -1,6 +1,4 @@
 <header>
-  <%= render "header" %>
-
   <div class="header-menu" id="header-title">
     <p>
       Estas son mis agendas
@@ -8,11 +6,21 @@
   </div>
 </header>
 
+<% i = 0 %>
+<% @ordered_agendas.each do |row| %>
 <div class="row pictograms">
-  <% @agendas.each do |agenda| %>
-    <div class="col s4">
-      <%= link_to "#{agenda.name}", disabled_agenda_path(agenda.id) %>
-      <%= link_to image_tag(agenda.image), disabled_agenda_path(agenda.id) %>
+  <% @ordered_agendas[i].each do |agenda| %>
+  <% if agenda %>
+      <div class="col s12 m3">
+        <div class="card">
+          <div class="card-image">
+            <%= link_to image_tag(agenda.image), disabled_agenda_path(agenda.id) %>
+            <span class="card-title"><%= link_to "#{agenda.name}", disabled_agenda_path(agenda.id) %></span>
+          </div>
+        </div>
+      </div>
+      <% end %>
     </div>
-  <% end %>
-</div>
+    <% end %>
+<% i += 1 %>
+<% end %>

@@ -17,6 +17,14 @@ users = User.create([
   {name: 'Alex Ugena',      email: 'alex@bmv.io',  role: 'professional', password: 'secret', password_confirmation: 'secret'}
 ])
 
+10.times do |p|
+  Pictogram.create(
+  name:     "Pictogram " + p.to_s,
+  image:    FFaker::Avatar.image,
+  )
+end
+
+
 # Create disableds
 disableds = []
 users.each do |user|
@@ -52,13 +60,8 @@ disableds.each do |disabled|
       image:      FFaker::Avatar.image,
       agenda_id:  agenda.id
       )
-
-      6.times do |p|
-        Pictogram.create(
-        name:     "Pictogram " + p.to_s,
-        image:    FFaker::Avatar.image,
-        board_id: board.id
-        )
+      for time in 1..10
+        board.pictograms.push(Pictogram.find(time))
       end
     end
   end

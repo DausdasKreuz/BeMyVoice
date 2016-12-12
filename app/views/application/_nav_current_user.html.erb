@@ -1,0 +1,7 @@
+<div class="header-menu-rigth-item">
+  <p>Me ayuda a hablar <strong><%= current_user.name %></strong></p>
+</div>
+
+<div class="header-menu-rigth-item">
+  <p><%= link_to 'Salir', destroy_user_session_path, method: 'DELETE' %></p>
+</div>
