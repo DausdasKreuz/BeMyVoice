@@ -8,11 +8,11 @@
   </div>
 </header>
 
-<ul>
+<div class="row pictograms">
   <% @agendas.each do |agenda| %>
-    <li>
+    <div class="col s4">
       <%= link_to "#{agenda.name}", disabled_agenda_path(agenda.id) %>
       <%= link_to image_tag(agenda.image), disabled_agenda_path(agenda.id) %>
-    </li>
+    </div>
   <% end %>
-</ul>
+</div>

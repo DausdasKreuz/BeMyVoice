@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161209112338) do
+ActiveRecord::Schema.define(version: 20161212143327) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -33,6 +33,13 @@ ActiveRecord::Schema.define(version: 20161209112338) do
     t.index ["agenda_id"], name: "index_boards_on_agenda_id", using: :btree
   end
 
+  create_table "boards_pictograms", force: :cascade do |t|
+    t.integer "board_id"
+    t.integer "pictogram_id"
+    t.index ["board_id"], name: "index_boards_pictograms_on_board_id", using: :btree
+    t.index ["pictogram_id"], name: "index_boards_pictograms_on_pictogram_id", using: :btree
+  end
+
   create_table "disableds", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at",      null: false
@@ -46,10 +53,8 @@ ActiveRecord::Schema.define(version: 20161209112338) do
   create_table "pictograms", force: :cascade do |t|
     t.string   "name"
     t.string   "image"
-    t.integer  "board_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["board_id"], name: "index_pictograms_on_board_id", using: :btree
   end
 
   create_table "users", force: :cascade do |t|
@@ -68,5 +73,4 @@ ActiveRecord::Schema.define(version: 20161209112338) do
 
   add_foreign_key "agendas", "disableds"
   add_foreign_key "boards", "agendas"
-  add_foreign_key "pictograms", "boards"
 end

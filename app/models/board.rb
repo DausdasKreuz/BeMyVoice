@@ -1,6 +1,6 @@
 class Board < ApplicationRecord
   belongs_to :agenda
-  has_many :pictograms
+  has_and_belongs_to_many :pictograms
 
   validates :name, presence: true
   validates :image, presence: true
