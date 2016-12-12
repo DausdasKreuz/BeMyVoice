@@ -5,19 +5,17 @@
 </div>
 </header>
 
-<ul>
-<% @pictograms.each do |pictogram| %>
-  <li>
-    <%= image_tag(pictogram.image) %>
-  </li>
-<% end %>
-</ul>
 <div class="container">
-  <div class="row first-row">
-    <div class="col s3 pictogram"></div>
-    <div class="col s6 pictogram"></div>
-    <div class="col s3 pictogram"></div>
+  <div class="row pictograms">
+    <% @pictograms.each do |pictogram| %>
+    <div class="col s12 m3">
+      <div class="card">
+        <div class="card-image">
+          <%= image_tag(pictogram.image) %>
+          <span class="card-title"><%= pictogram.name %></span>
+        </div>
+      </div>
+    </div>
+    <% end %>
   </div>
 </div>
-
-div.second-row>
