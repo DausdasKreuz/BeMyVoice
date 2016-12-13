@@ -58,7 +58,7 @@ disableds_container.each do |disabled_type|
         )
         house_child_agenda.boards.create(
           name: 'Qué puedo hacer en casa',
-          image: 'child_class_pictograms/casa.png'
+          image: 'child_class_pictograms/casa_1.png'
         )
 
         school_agenda.boards.create(
