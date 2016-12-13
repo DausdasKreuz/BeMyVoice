@@ -2,12 +2,15 @@
   <%= render "navbar" %>
 </header>
 
-<div class="header-menu" id="header-title">
-  <p>
-    Estos son los pictogramas del tablero <%= @board.name %>, que está en la agenda <%= @agenda.name %>
-  </p>
+<div class="row">
+  <div class="s12 m12 center-align">
+    <h5>Estos son los pictogramas del tablero <%= @board.name %>, que está en la agenda
+      <h3>
+        <%= @agenda.name %>
+      </h3>
+    </h5>
+  </div>
 </div>
-</header>
 
 <div class="container">
   <div class="row pictograms">
