@@ -40,10 +40,11 @@ group :development, :test do
   gem 'byebug', platform: :mri
   gem 'rspec-rails'
   gem 'capybara'
+  gem 'sqlite3'
 end
 
 group :test do
-  gem 'sqlite3'
+  # gem 'sqlite3'
 end
 
 group :development do

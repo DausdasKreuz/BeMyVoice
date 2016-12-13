@@ -1,33 +1,24 @@
 <nav>
-<div class="row nav-menu">
-  <ul id="menu-list">
-    <div class="nav-menu-left col s6 m3 left-align">
-      <li class="nav-menu-item">
-        <% if @disabled %>
-          <%= render "nav_disabled_selected" %>
-        <% else %>
-          <%= render "nav_no_disabled_selected" %>
-        <% end %>
-      </li>
-    </div>
 
-    <div class="nav-menu-center col s12 m6 center-align">
-      <p>
-        Texto central
-      </p>
-    </div>
+  <div class="row nav-wrapper">
 
-    <div class="nav-menu-right s6 m3 right-align">
-      <li class="nav-menu-item">
-        <% if user_signed_in? %>
+    <a href="#" class="brand-logo">BeMyVoice</a>
+
+    <ul id="nav-mobile" class="right hide-on-med-and-down">
+
+      <% if @disabled %>
+        <%= render "nav_disabled_selected" %>
+      <% else %>
+        <%= render "nav_no_disabled_selected" %>
+      <% end %>
+      <% if user_signed_in? %>
         <%= render "nav_current_user" %>
-        <% else %>
+      <% else %>
         <%= render "nav_no_current_user" %>
-        <% end %>
-      </li>
-    </div>
+      <% end %>
 
-  </ul>
-</div>
+    </ul>
+
+  </div>
 
 </nav>
