@@ -2,28 +2,27 @@
   <%= render "navbar" %>
 </header>
 
-<h2><%= current_user.name %>!</h2>
+<div class="container">
+  <h2><%= current_user.name %>!</h2>
 
+  <ul class="collection with-header">
+    <li class="collection-header row valign-wrapper" style="margin-bottom: 0;">
+      <h4 class="col s11 valing">Alumnos</h4>
+      <%= link_to ("<i class='material-icons'>add</i>").html_safe, new_disabled_path, method: :get, class: "btn col s1 valing" %>
 
-<p>
-  <strong>Email:</strong> <%= current_user.email %>
-</p>
-
-<ul>
-  <% @disableds.each do |disabled| %>
-    <li>
-      <%= disabled.name %>
-      <%= link_to "Select disable", disabled_path(disabled) %>
     </li>
-  <% end %>
-</ul>
+    <% @disableds.each do |disabled| %>
+      <li class="collection-item">
+        <div>
+          <%= disabled.name %>
+          <%= link_to ("<i class='material-icons'>folder_shared</i>").html_safe,   disabled_path(disabled), class: "secondary-content" %>
+        </div>
+      </li>
+    <% end %>
+  </ul>
 
-<p>
-  <%= button_to "Create disabled profile", new_disabled_path, method: :get %>
-</p>
+  <p>
+  </p>
 
-<p>
-  <%= button_to "Edit profile", "/users/edit", method: :get %>
-</p>
-
-<%= link_to "Back", :back %>
+  <%= link_to "Back", :back %>
+</div>
