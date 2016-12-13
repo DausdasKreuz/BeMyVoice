@@ -15,6 +15,26 @@ nav
     color: $accent-color
 
   ul
+    font-size: 1.2rem
+
+    .user-disabled
+      background-color: lighten($accent-color, 35%)
+      margin-right: 1rem
+      padding: 0 1rem
+
+    .user-nav
+      color: $accent-color
+
+    .exit-nav
+      background-color: $warning-color
+      margin-left: 1rem
+      &:hover
+        background-color: $error-color
+      i
+        color: $error-color
+        &:hover
+          color: $white
+
     a
       color: $gray-dark
       font-size: 1.2rem
