@@ -1,0 +1,2 @@
+module PictogramsHelper
+end

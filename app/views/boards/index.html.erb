@@ -18,8 +18,8 @@
     <div class="col s12 m3">
       <div class="card">
         <div class="card-image">
-          <%= link_to image_tag(board.image), "/disableds/#{@disabled.id}/agendas/#{@agenda.id}/boards/#{board.id}" %>
-          <span class="card-title"><%= link_to "#{board.name}", "/disableds/#{@disabled.id}/agendas/#{@agenda.id}/boards/#{board.id}" %></span>
+          <%= link_to image_tag(board.image), disabled_agenda_board_pictograms_path(@disabled, @agenda, board) %>
+          <span class="card-title"><%= link_to "#{board.name}", disabled_agenda_board_pictograms_path(@disabled, @agenda, board) %></span>
         </div>
       </div>
     </div>

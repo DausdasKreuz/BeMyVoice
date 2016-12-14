@@ -14,8 +14,8 @@
     <div class="col s12 m3">
       <div class="card">
         <div class="card-image">
-          <%= link_to image_tag(agenda.image), disabled_agenda_path(agenda.id) %>
-          <span class="card-title"><%= link_to "#{agenda.name}", disabled_agenda_path(agenda.id) %></span>
+          <%= link_to image_tag(agenda.image), disabled_agenda_boards_path(@disabled,agenda) %>
+          <span class="card-title"><%= link_to "#{agenda.name}", disabled_agenda_boards_path(@disabled,agenda) %></span>
         </div>
       </div>
     </div>
