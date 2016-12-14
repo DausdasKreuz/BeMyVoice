@@ -22,9 +22,9 @@ function renderPicList() {
   message.innerHTML = '';
 
   // iterate and render
-  for (let pic of picList) {
-    picURL = pic.attributes.src.value;
-      message.innerHTML += `<div class="message-card"><img src="${picURL}" /><i class="material-icons close">clear</i></div>`;
+  for (var i = 0; i < picList.length; i++) {
+    picURL = picList[i].attributes.src.value;
+    message.innerHTML += '<div class="message-card"><img src="' + picURL + '" /><i class="material-icons close">clear</i></div>';
   }
 
   // bind all close buttons with their functions
