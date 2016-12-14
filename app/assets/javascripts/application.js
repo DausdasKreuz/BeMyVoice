@@ -22,7 +22,7 @@ function renderPicList() {
   message.innerHTML = '';
 
   // iterate and render
-  for (var pic of picList) {
+  for (let pic of picList) {
     picURL = pic.attributes.src.value;
       message.innerHTML += `<div class="message-card"><img src="${picURL}" /><i class="material-icons close">clear</i></div>`;
   }
