@@ -1,5 +1,5 @@
 class PictogramsController < ApplicationController
-  before_action :find_disabled, :find_guide, :find_agenda, :find_board
+  before_action :find_disabled, :find_agenda, :find_board
 
 
   def index

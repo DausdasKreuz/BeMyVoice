@@ -1,6 +1,6 @@
 class DisabledsController < ApplicationController
   before_action :disabled_params, only: [:create]
-  before_action :find_disabled, :find_guide, only: [:destroy, :edit, :show]
+  before_action :find_disabled, only: [:destroy, :edit, :show]
 
   def show
     items_by_row = 4

@@ -1,5 +1,5 @@
 class AgendasController < ApplicationController
-  before_action :find_disabled, :find_guide
+  before_action :find_disabled,
 
   def index
     @agendas = @disabled.agendas

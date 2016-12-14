@@ -16,10 +16,4 @@ class ApplicationController < ActionController::Base
     else
       @disabled = Disabled.find_by(id: params[:id])
   end
-
-  def find_guide
-    if User.find_by(id: @disabled.guide_id)
-      @guide = User.find_by(id: @disabled.guide_id)
-    end
-  end
 end

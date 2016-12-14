@@ -156,6 +156,7 @@ disableds.each do |disabled|
     password_confirmation: 'secret'
   )
   disabled.guide_id = guide.id
+  disabled.save
 end
 
 
@@ -171,7 +172,6 @@ child_class_pictograms = ['amigos', 'autobús', 'baño', 'beber', 'casa_1',
   'yo']
 meeting_pictograms = ['adiós', 'colegio', 'hermana', 'hola', 'mamá', 'no_1',
   'papá', 'sí_1', 'yo']
-
 
 boards = Board.all
 boards.each do |board|
@@ -189,9 +189,7 @@ boards.each do |board|
     when 'Que puedo hacer en el colegio' then 'child_class_pictograms'
     when 'Ver la tele' then 'adult_house_pictograms'
   end
-  if !container
-    binding.pry
-  end
+
   container.each do |image|
     pictogram = Pictogram.create(
       name:  image,
