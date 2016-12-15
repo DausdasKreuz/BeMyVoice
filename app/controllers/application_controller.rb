@@ -3,17 +3,17 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   protected
-  def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:name])
+    def configure_permitted_parameters
+      devise_parameter_sanitizer.permit(:sign_up, keys: [:name])
+    end
   end
-end
 
-private
+  private
 
-def find_disabled
-  if params[:disabled_id]
-    @disabled = Disabled.find_by(id: params[:disabled_id])
-  else
-    @disabled = Disabled.find_by(id: params[:id])
+  def find_disabled
+    if params[:disabled_id]
+      @disabled = Disabled.find_by(id: params[:disabled_id])
+    else
+      @disabled = Disabled.find_by(id: params[:id])
   end
 end
